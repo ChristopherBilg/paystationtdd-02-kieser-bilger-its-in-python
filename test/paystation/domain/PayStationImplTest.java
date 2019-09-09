@@ -214,4 +214,18 @@ public class PayStationImplTest {
             ps.addPayment(10);
             assertEquals("The 5 coin should come back null", ps.cancel().get(5), null);
     }
+    
+    /**
+     * Call to cancel clears the map.
+     */
+    @Test
+    public void callToCancelClearsTheMap()
+            throws IllegalCoinException {
+        ps.addPayment(5);
+        ps.addPayment(10);
+        ps.addPayment(25);
+        ps.cancel();
+        HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+        assertEquals("Both should be empty so they should be equal.", ps.cancel(), tempMap);
+    }
 }

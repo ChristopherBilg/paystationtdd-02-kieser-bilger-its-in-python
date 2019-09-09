@@ -66,16 +66,14 @@ public class PayStationImpl implements PayStation {
 
     @Override
     public HashMap<Integer, Integer> cancel() {
-        HashMap <Integer, Integer> temp = currentContents;
+        HashMap <Integer, Integer> temp = new HashMap<Integer, Integer>();
+        temp.putAll(currentContents);
         reset();
         return temp;
     }
     
     private void reset() {
         timeBought = insertedSoFar = 0;
-    }
-    
-    private void resetMap() {
         currentContents.clear();
     }
     
