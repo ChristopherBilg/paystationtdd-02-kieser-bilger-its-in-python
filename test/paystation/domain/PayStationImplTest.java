@@ -205,4 +205,13 @@ public class PayStationImplTest {
         tempMap.put(5, 1);
         assertEquals("The two maps should be identical containing 3 correct coins.", ps.cancel(), tempMap);
     }
+    
+    @Test
+    public void callToCancelDoesntReturnCoinsNotEntered() throws IllegalCoinException{
+    
+            ps.empty();
+            ps.addPayment(25);
+            ps.addPayment(10);
+            assertEquals("The 5 coin should come back null", ps.cancel().get(5), null);
+    }
 }
