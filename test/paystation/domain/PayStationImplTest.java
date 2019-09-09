@@ -228,4 +228,17 @@ public class PayStationImplTest {
         HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
         assertEquals("Both should be empty so they should be equal.", ps.cancel(), tempMap);
     }
+    
+    /**
+     * Call to buy clears the map.
+     */
+    @Test
+    public void callToBuyClearsTheMap()
+            throws IllegalCoinException {
+        ps.addPayment(25);
+        ps.addPayment(25);
+        ps.buy();
+        HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+        assertEquals("Both should be empty so they should be equal.", ps.cancel(), tempMap);
+    }
 }
