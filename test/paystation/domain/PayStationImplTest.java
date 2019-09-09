@@ -11,6 +11,7 @@
  */
 package paystation.domain;
 
+import java.util.HashMap;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -173,5 +174,18 @@ public class PayStationImplTest {
         ps.addPayment(25);
         ps.empty();
         assertEquals("Read Display in cents should be empty (0).", 0, ps.readDisplayInCents());
+    }
+    
+    /**
+     * Call to cancel returns a map of one coin entered.
+     */
+    @Test
+    public void calltoCancelReturnsMapOfOneCoinEntered()
+            throws IllegalCoinException {
+        ps.empty();
+        ps.addPayment(25);
+        HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+        tempMap.put(25, 1);
+        assertEquals("The two maps should be identical containing 1 coin.", ps.cancel(), tempMap);
     }
 }
