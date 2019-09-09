@@ -188,4 +188,21 @@ public class PayStationImplTest {
         tempMap.put(25, 1);
         assertEquals("The two maps should be identical containing 1 coin.", ps.cancel(), tempMap);
     }
+    
+    /**
+     * Call to cancel returns correct coin type, not the lowest amount of coins.
+     */
+    @Test
+    public void callToCancelReturnsTheCorrectCoinType()
+            throws IllegalCoinException {
+        ps.empty();
+        ps.addPayment(10);
+        ps.addPayment(10);
+        ps.addPayment(5);
+        HashMap<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+        tempMap.put(10, 1);
+        tempMap.put(10, 1);
+        tempMap.put(5, 1);
+        assertEquals("The two maps should be identical containing 3 correct coins.", ps.cancel(), tempMap);
+    }
 }
