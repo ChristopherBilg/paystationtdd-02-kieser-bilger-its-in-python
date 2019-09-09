@@ -38,6 +38,7 @@ public interface PayStation {
      */
     public int readDisplay();
 
+    public int readDisplayInCents();
     /**
      * Buy parking time. Terminate the ongoing transaction and return a parking
      * receipt. A non-null object is always returned.

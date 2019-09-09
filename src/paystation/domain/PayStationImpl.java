@@ -42,6 +42,11 @@ public class PayStationImpl implements PayStation {
     public int readDisplay() {
         return timeBought;
     }
+    
+    @Override
+    public int readDisplayInCents() {
+        return insertedSoFar;
+    }
 
     @Override
     public Receipt buy() {
