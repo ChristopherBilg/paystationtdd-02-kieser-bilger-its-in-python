@@ -150,6 +150,10 @@ public class PayStationImplTest {
         ps.addPayment(25);
         assertEquals("Empty should return amount entered (50)", 50, ps.empty());
     }
+    
+    /**
+     * Cancel does not add to the total amount in the machine.
+     */
     @Test
     public void cancelDoesNotAddtoAmountReturned()
         throws IllegalCoinException {
@@ -157,5 +161,17 @@ public class PayStationImplTest {
         ps.addPayment(25);
         assertEquals("Paypemt should currently be (25)", 25, ps.readDisplayInCents());
         
+    }
+    
+    /**
+     * Call to empty function should successfully reset the machine to being completely empty.
+     */
+    @Test
+    public void callToEmptyShouldSuccessfullyEmptyOutTheMachine()
+            throws IllegalCoinException {
+        ps.empty();
+        ps.addPayment(25);
+        ps.empty();
+        assertEquals("Read Display in cents should be empty (0).", 0, ps.readDisplayInCents());
     }
 }
