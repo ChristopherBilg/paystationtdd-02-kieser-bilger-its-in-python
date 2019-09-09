@@ -5,6 +5,7 @@ Team Members: Curtis Kieser and Chris Bilger
 Requirements: <FILL IN LATER>
 
 Team Contributions:
+
 Curtis Kieser: <FILL IN LATER>
 
 Chris Bilger: <FILL IN LATER>
