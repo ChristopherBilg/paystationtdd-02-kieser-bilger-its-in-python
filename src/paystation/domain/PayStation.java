@@ -50,4 +50,9 @@ public interface PayStation {
      * Cancel the present transaction. Resets the machine for a new transaction.
      */
     public void cancel();
+    
+    /**
+     * Empty the machine of all coins.
+     */
+    public int empty();
 }
