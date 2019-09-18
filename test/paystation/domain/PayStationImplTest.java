@@ -160,7 +160,8 @@ public class PayStationImplTest {
         throws IllegalCoinException {
         ps.empty();
         ps.addPayment(25);
-        assertEquals("Paypemt should currently be (25)", 25, ps.readDisplayInCents());
+        ps.cancel();
+        assertEquals("Payment should currently be (0)", 0, ps.empty());
         
     }
     
